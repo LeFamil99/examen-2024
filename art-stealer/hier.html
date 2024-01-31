@@ -1,0 +1,79 @@
+<div class='container'>
+ <div class='content-container'>
+   <div class='mask1'></div>
+   <div class='mask2'></div>
+   <div class='mask3'></div>
+   <div class='mask4'></div>
+   <div class='mask5'></div>
+ </div>
+</div>
+
+<style>
+  html {
+    background-color: #6A1368;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .content-container {
+    width: 280px;
+    height: 180px;
+    background-color: #F7BED9;
+    border-radius: 21px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .mask1 {
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background-color: #A94EA4;
+    bottom: 90px
+  }
+
+    .mask2 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #A94EA4;
+    left: 3px;
+    bottom: 70px;
+    transform: rotate(50deg)
+  }
+
+    .mask3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #F7BED9;
+    left: 112px;
+    bottom: -80px;
+    transform: rotate(40deg)
+  }
+
+    .mask4 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #A94EA4;
+    left: 179px;
+    bottom: 100px;
+    transform: rotate(50deg)
+  }
+
+    .mask5 {
+    position: absolute;
+    width: 60px;
+    height: 200px;
+    background-color: #F7BED9;
+    left: 240px;
+    bottom: -110px;
+  }
+</style>
