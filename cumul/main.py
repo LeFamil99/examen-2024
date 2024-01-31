@@ -8,16 +8,27 @@ class Game2048:
     HEIGHT = 8
         
     def __init__(self):
-        
         self.window = tk.Tk()
         self.window.title("2048 Trop coole")
         self.score = 0
+        
+        self.score_label = tk.Label(self.window, text="Score: 0", font=("Helvetica", 16))
+        self.score_label.grid(row=0, column=0, columnspan=self.WIDTH, pady=10, sticky="n")
+        
+        self.grid_frame = tk.Frame(self.window)
+        self.grid_frame.grid(row=1, column=0, columnspan=self.WIDTH)
+
 
         self.start_game()
         self.place_random_tile()
         self.place_random_tile()
         
         self.reload_board()
+
+        self.window.bind("<Up>", self.move_up)
+        self.window.bind("<Down>", self.move_down)
+        self.window.bind("<Left>", self.move_left)
+        self.window.bind("<Right>", self.move_right)
 
         self.window.mainloop()
 
@@ -28,7 +39,7 @@ class Game2048:
             tile_row = []
             board_row = []
             for j in range(self.WIDTH):
-                tile = tk.Label(self.window, text="", width=5, height=2, font=('Arial', 20, 'bold'), relief="solid")
+                tile = tk.Label(self.grid_frame, text="", width=5, height=2, font=('Arial', 20, 'bold'), relief="solid")
                 tile.grid(row=i, column=j, padx=5, pady=5)
                 tile_row.append(tile)
                 
@@ -49,6 +60,8 @@ class Game2048:
                 value = self.board[i][j]
                 text = str(value) if value != 0 else ""
                 self.tiles[i][j].configure(text=text, bg="white")
+                
+        self.score_label.configure(text=f"Score: {self.score}")
 
     def place_random_tile(self):
         empty_cells = [(i, j) for i in range(self.HEIGHT) for j in range(self.WIDTH) if self.board[i][j] == 0]
